@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FriendOrganizer.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Friend Organizer" Height="350" Width="525" FontSize="20">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListView ItemsSource="{Binding Friends}" 
+                  SelectedItem="{Binding SelectedFriend ,Mode=TwoWay}"
+                  DisplayMemberPath="FirstName"
+            Grid.Column="0"></ListView>
+        <Grid Grid.Column="1">
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto"></RowDefinition>
+                  <RowDefinition Height="Auto"></RowDefinition>
+                  <RowDefinition Height="Auto"></RowDefinition>
+                  <RowDefinition Height="Auto"></RowDefinition>
+                  <RowDefinition Height="Auto"></RowDefinition>
+                  <RowDefinition Height="Auto"></RowDefinition>
+                  <RowDefinition Height="*"></RowDefinition>
+              </Grid.RowDefinitions>
+            
+            <Label Content="FirstName" Margin="10 10 10 0"></Label>
+            <TextBox Grid.Row="1" Margin="10 0 10 10" Text="{Binding SelectedFriend.FirstName,
+                Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            
+            <Label Content="LastName" Grid.Row="2" Margin="10 0"></Label>
+            <TextBox Grid.Row="3" Margin="10 0 10 10" Text="{Binding SelectedFriend.LastName,
+                Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </Grid>
     </Grid>
 </Window>
