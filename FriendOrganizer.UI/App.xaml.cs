@@ -14,7 +14,7 @@ namespace FriendOrganizer.UI
             var bootStrapper = new BootStrapper();
             var container = bootStrapper.BootStrap();
 
-            var mainWindow = container.Resolve<MainWindow>();
+            var mainWindow = container.Resolve<View.MainWindow>();
             mainWindow.Show();
 
         }

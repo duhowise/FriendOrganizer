@@ -1,8 +1,7 @@
-﻿using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using FriendOrganizer.UI.ViewModel;
 
-namespace FriendOrganizer.UI
+namespace FriendOrganizer.UI.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
