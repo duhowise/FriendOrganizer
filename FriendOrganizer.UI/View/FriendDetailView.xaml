@@ -16,6 +16,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Label Content="First Name" />
@@ -24,6 +25,9 @@
             <TextBox Margin="10 10 10 0" Text="{Binding Path=Friend.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}" Grid.Column="1" Grid.Row="1" />
             <Label Content="Email" Grid.Row="2" Grid.Column="0" />
             <TextBox Margin="10 10 10 0" Text="{Binding Path=Friend.Email, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}" Grid.Column="1" Grid.Row="2" />
-        </Grid>
+            <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <Button HorizontalAlignment="Right" Content="Save" Width="125" Margin="10" Command="{Binding SaveCommand}"/>
+            </StackPanel>
+            </Grid>
     </Grid>
 </UserControl>
