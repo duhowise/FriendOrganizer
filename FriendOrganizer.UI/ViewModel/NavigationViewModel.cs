@@ -1,5 +1,4 @@
-﻿using FriendOrganizer.Model;
-using FriendOrganizer.UI.Data;
+﻿using FriendOrganizer.UI.Data;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ namespace FriendOrganizer.UI.ViewModel
 {
   public class NavigationViewModel :ViewModelBase, INavigationViewModel
     {
-    private IFriendLookupDataService _friendLookupService;
+    private readonly IFriendLookupDataService _friendLookupService;
         private readonly IEventAggregator _eventAggregator;
         private NavigationItemViewModel _selectedFriend;
 
