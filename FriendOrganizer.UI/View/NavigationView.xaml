@@ -7,7 +7,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ListView Grid.Row="0" DisplayMemberPath="DisplayMember" SelectedItem="{Binding SelectedFriend,Mode=TwoWay}"  ItemsSource="{Binding Path=Friends}" />
-          
+        <ScrollViewer Grid.Row="0"   HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+           <ItemsControl ItemsSource="{Binding Path=Friends}">
+               <ItemsControl.ItemTemplate>
+                   <DataTemplate>
+                       <Button Content="{Binding DisplayMember}"
+                            Command="{Binding OpenFriendDetailViewCommand}"   >
+
+                           <Button.Template>
+                               <ControlTemplate TargetType="Button">
+                                   <Grid x:Name="grid">
+                                       <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                   </Grid>
+                                   <ControlTemplate.Triggers>
+                                       <Trigger Property="IsMouseOver" Value="True">
+                                           <Setter Property="Cursor" Value="Hand"/>
+                                           <Setter Property="FontWeight" Value="Bold"/>
+                                       </Trigger>
+                                       <Trigger Property="IsPressed" Value="True">
+                                           <Setter Property="FontWeight" Value="Normal"/>
+                                       </Trigger>
+                                   </ControlTemplate.Triggers>
+                               </ControlTemplate>
+                           </Button.Template>
+                        </Button>
+
+                   </DataTemplate>
+               </ItemsControl.ItemTemplate>
+
+           </ItemsControl>
+        </ScrollViewer>
+
     </Grid>
 </UserControl>

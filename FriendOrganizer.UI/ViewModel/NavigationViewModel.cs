@@ -1,7 +1,7 @@
-﻿using FriendOrganizer.UI.Data;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using FriendOrganizer.UI.Data.Lookups;
 using FriendOrganizer.UI.Event;
 using Prism.Events;
 
@@ -34,7 +34,7 @@ namespace FriendOrganizer.UI.ViewModel
       Friends.Clear();
       foreach (var item in lookup)
       {
-        Friends.Add(new NavigationItemViewModel(item.Id,item.DisplayMember));
+        Friends.Add(new NavigationItemViewModel(item.Id,item.DisplayMember,_eventAggregator));
       }
     }
 
@@ -49,8 +49,7 @@ namespace FriendOrganizer.UI.ViewModel
                 OnPropertyChanged();
                 if (_selectedFriend!=null)
                 {
-                    _eventAggregator.GetEvent<OpenFriendDetailViewEvent>()
-                        .Publish(_selectedFriend.Id);
+                    
                 }
             }
         }
